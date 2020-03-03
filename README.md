@@ -27,8 +27,11 @@ This is a project template powered by [Cookiecutter](https://github.com/cookiecu
   - Ignores a few typical temporary/unnecessary files common to most data projects.
 - `README.md`
   - Project-specific readme with boilerplate for data projects.
+  - Includes sourcing details and places to explain how to replicate/remake the project.
 - `analysis`
   - Code that involves analysis on already-cleaned data. Code for cleaning data should go in `etl`.
+  - Multiple analysis files are numbered sequentially.
+  - If we are sharing the data, last analysis script is called make_dw_files.[R,py] to write_csv to public folder.
   - `analysis/archive`
     - Any analyses for story threads that are no longer being investigated are placed here for reference.
 - `data`
@@ -42,11 +45,15 @@ This is a project template powered by [Cookiecutter](https://github.com/cookiecu
   - `data/processed`
     - Data that has been processed by scripts in this project and is clean and ready for analysis goes here.
   - `data/public`
-    - Public-facing data files go here - data files which are 'live'.
+    - Public-facing data files (i.e., final datasets we share with reporters/make accessible) go here - data files which are 'live'.
   - `data/source`
     - Original data from sources goes here.
 - `etl`
-  - ETL scripts for transforming source data go here.
+  - ETL (extract, transform, load) scripts for reading in source data and cleaning and standardizing it to prepare for analysis go here.
+    - Multiple etl files are numbered.
+    - Joins are included in etl process.
+    - Last step of ETL process is to output an [RDS,Pickle] file to data/processed.
+      - naming convention: etl_WHATEVERNAME.[rds,pkl]
 - `publish`
   - This directory holds all documents in the project that will be public facing (e.g. data.world documents).
 - `scratch`
