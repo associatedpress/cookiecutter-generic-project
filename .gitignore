@@ -1,0 +1,8 @@
+*.vim
+.DS_Store
+
+data/
+!data/.gitkeep
+
+scratch/
+!scratch/.gitkeep
